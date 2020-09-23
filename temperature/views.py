@@ -19,7 +19,7 @@ def screen(request):
 
 def download_records_csv(request):
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="temperature.csv"'
+    response['Content-Disposition'] = 'attachment; filename="records.csv"'
 
     writer = csv.writer(response)
     writer.writerow(['id', 'time', 'temperature', 'photo'])
