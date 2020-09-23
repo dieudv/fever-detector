@@ -28,8 +28,8 @@ urlpatterns = [
     path('', include(router.urls), name="api"),
     path('', views.index, name="index"),
     path('screen', views.screen, name="screen"),
-    path('download/csv', views.export_records_csv, name="download_csv"),
-    path('download/photo', views.export_photos, name="download_photo"),
+    path('download/csv', views.download_records_csv, name="download_csv"),
+    path('download/photo', views.download_photos, name="download_photo"),
     path('admin/', admin.site.urls),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
 ]
