@@ -1,0 +1,93 @@
+body {
+  background: #3332;
+}
+
+h1 {
+  font-size: 3vh;
+}
+
+.container {
+  margin-top: 15px;
+}
+
+.button-action {
+  text-align: center;
+}
+
+.container > .row > .table tr.active th,
+.container > .row > .table tr.active td {
+  background-color: #123456;
+  color: white;
+  font-weight: bold;
+}
+
+.temp {
+  font-size: 8vh;
+  text-align: center;
+  color: green;
+}
+
+#temp.screen {
+  font-size: 16vh;
+  text-align: center;
+  color: green;
+}
+
+.temp-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: 100px;
+    background-color: white;
+}
+
+.top-icon {
+    color: black;
+    padding: 8px;
+    position: absolute;
+    right: 24px;
+    top: 0px;
+    font-size: 16px;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.tutorial {
+    margin-top: 10%;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.tutorial p span {
+    color: blue;
+}
+
+.tutorial p i {
+    color: red;
+}
+
+.tutorial img {
+    padding: 10px;
+}
+
+tbody tr.active {
+  background-color: #ddd;
+  font-style: italic;
+}
+
+tbody tr.active td {
+  border: 1px solid white;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}

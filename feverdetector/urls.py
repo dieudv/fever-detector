@@ -14,8 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.conf import settings
+from django.urls import path, re_path, include
+from django.views.static import serve
+from temperature import api, views
+from rest_framework.routers import SimpleRouter
+
+
+router = SimpleRouter()
+router.register(r'api', api.RecordViewSet)
 
 urlpatterns = [
+    path('', include(router.urls), name="api"),
+    path('', views.index, name="index"),
+    path('screen', views.screen, name="screen"),
+    path('download/csv', views.export_records_csv, name="download_csv"),
+    path('download/photo', views.export_photos, name="download_photo"),
     path('admin/', admin.site.urls),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT,}),
 ]

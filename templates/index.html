@@ -1,0 +1,100 @@
+{% load static %}
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>THỐNG KÊ NHIỆT ĐỘ | AI Fablab</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/thmeter.css' %}" />
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/thmeter.js' %}" async></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card border-primary mb-3">
+            <div class="card-header">
+            </div>
+            <div class="card-body text-dark">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <div class="tem-box">
+                            <div class="temp " id="temp-div">
+                                <span id="temp"></span>
+                                <span>°C</span>
+                            </div>
+                            <div class="top-icon">
+                                <a href="#" id="external-tab">
+                                    <i class='fas fa-external-link-alt'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="table-responsive" id="statistical">
+                            <table class="table table-bordered text-right" width="100%">
+                                <tr>
+                                    <td></td>
+                                    <td>Trong ngày</td>
+                                    <td>Tất cả</td>
+                                </tr>
+                                <tr>
+                                    <td>Số lần đo</td>
+                                    <td id="today-count"></td>
+                                    <td id="count"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cảnh báo</td>
+                                    <td id="today-fever" style="color: red;font-weight: bold;"></td>
+                                    <td id="fever" style="color: red;font-weight: bold;"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card border-primary mb-3" id="ls-records">
+            <div class="card-header">
+                Thống kê
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="table-records">
+                    </table>
+                    <center>
+                        <div class="col-md-12">
+                            <div class="alert alert-warning">
+                                <span>*** Lưu ý: Web chỉ hiển thị tối đa 1000 lần đo. Nhấn download để tải xuống toàn bộ dữ liệu!</span>
+                            </div>
+                        </div>
+                        <div id="toolbar" class="dt-buttons btn-group" role="group">
+                            <a href="{% url 'download_csv' %}" class="btn btn-outline-primary" role="button">Download records</a>
+                            <a href="{% url 'download_photo' %}" class="btn btn-outline-primary" role="button">Download photos</a>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="img-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span></button>
+                    <img src="" class="img-view" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

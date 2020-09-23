@@ -1,0 +1,5 @@
+*.pyc
+migrations
+/assets/
+/media/
+db.sqlite3

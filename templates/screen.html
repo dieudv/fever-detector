@@ -1,0 +1,65 @@
+{% load static %}
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NCOV THERMOMETER | AI Fablab</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/thmeter.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="{% static 'js/thmeter-screen.js' %}"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card border-primary mb-3">
+            <div class="card-header text-center">
+                <h1 style="font-size: 16px; font-weight: bold; color: blue;">NCOV THERMOMETER</h1>
+            </div>
+            <div class="card-body text-center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row d-block">
+                            <img src="{% static 'img/thermometer.svg' %}" style="width: 30%;" />
+                        </div>
+                        <div class="row d-block">
+                            <span id="temp" class="screen"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img id="photo" src="" style="width: 100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card border-primary mb-3">
+            <div class="card-body text-center">
+                <div class="row">
+                    <div class="col-md-4 text-right">
+                        <img src="{% static 'img/tut.webp' %}" style="width: 80%;" />
+                    </div>
+                    <div class="col-md-8 text-left">
+                        <div class="row tutorial">
+                            <p>
+                                <i class='fas fa-thermometer'></i>
+                                <span>Vui lòng giữ trán cách máy đo 5cm trong 2 giây cho đến khi nghe tiếp bíp!</span>
+                            </p>
+                            <p>
+                                <i class='fas fa-thermometer'></i>
+                                <span>Please hold your forehead 5 cm away from the meter for 2 seconds until it beeps!</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

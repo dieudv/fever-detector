@@ -1,0 +1,4 @@
+channels
+django-filter
+djangorestframework
+pillow
