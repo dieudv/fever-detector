@@ -1,7 +1,7 @@
 import json
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from .models import Record
 from .serializers import RecordSerializer
@@ -38,7 +38,8 @@ class RecordConsumer(WebsocketConsumer):
 
         if action:
             if action == "init":
-                records = Record.objects.all().order_by('-created_at')[:1000]
+                time_threshold = datetime.now() - timedelta(days=1)
+                records = Record.objects.filter(created_at__gte=time_threshold).order_by('-created_at')
                 serializes = RecordSerializer(records, many=True)
 
                 self.send(text_data=json.dumps({
